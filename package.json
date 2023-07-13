@@ -1,0 +1,30 @@
+{
+  "name": "state-tokens",
+  "version": "1.0.0",
+  "description": "Classes and type definitions for state transition tokens for libraries that manage tokens as objects in sets and tables.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copious-world/state-tokens.git"
+  },
+  "keywords": [
+    "state-transition",
+    "tokens",
+    "process-markers",
+    "types",
+    "js",
+    "ts"
+  ],
+  "author": "R. Leddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/copious-world/state-tokens/issues"
+  },
+  "homepage": "https://github.com/copious-world/state-tokens#readme"
+}
