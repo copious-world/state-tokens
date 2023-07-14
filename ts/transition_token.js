@@ -4,7 +4,7 @@
  * and also that provides basic information about server side and client side operations
  * necessary to coordinate a transition of state between the two.
  */
-class TransitionObject {
+export class TransitionObject {
     token;
     session_token;
     secondary_action;
@@ -114,7 +114,7 @@ class TransitionObject {
  * @extends TransitionObject
  *
  */
-class LoginTransitionObject extends TransitionObject {
+export class LoginTransitionObject extends TransitionObject {
     _t_u_key;
     _db_session_key;
     user_key;
@@ -145,7 +145,7 @@ class LoginTransitionObject extends TransitionObject {
  *
  * @extends TransitionObject
  */
-class LogoutTransitionObject extends TransitionObject {
+export class LogoutTransitionObject extends TransitionObject {
     constructor(type) {
         super(type);
         this.extras = [];
@@ -156,7 +156,7 @@ class LogoutTransitionObject extends TransitionObject {
  *
  * @extends TransitionObject
  */
-class RegistrationTransitionObject extends TransitionObject {
+export class RegistrationTransitionObject extends TransitionObject {
     constructor(type) {
         super(type);
         this.extras = [];
@@ -171,7 +171,7 @@ class RegistrationTransitionObject extends TransitionObject {
  *
  * @extends TransitionObject
  */
-class ProcessTransitionObject extends TransitionObject {
+export class ProcessTransitionObject extends TransitionObject {
     asset_key;
     constructor(transition) {
         super('transition');
@@ -179,14 +179,4 @@ class ProcessTransitionObject extends TransitionObject {
         this.asset_key = transition;
         this.extras = ['asset_key'];
     }
-}
-
-
-
-module.exports = {
-    TransitionObject,
-    LoginTransitionObject,
-    LogoutTransitionObject,
-    RegistrationTransitionObject,
-    ProcessTransitionObject
 }
