@@ -50,6 +50,7 @@ export class TransitionObject {
                 obj[fld] = self[fld]
             }
         }
+        return obj
     }
 
     /**
