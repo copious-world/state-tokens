@@ -33,26 +33,35 @@ export class TransitionObject {
 
     /**
      * Returns an object without class information containing a minimal set of top level fields refering to current values.
-     * If the *extras* parameter is supplied, this method assumes that it is an array of field names.
+     * If the *preserve_fields* parameter is supplied, this method assumes that it is an array of field names.
      * The extra field will be added to the object produced by this method.
-     * @param {string[]} [extras] 
+     * @param {string[]} [preserve_fields] 
      * 
      * @returns {object}
      */
-    to_object() {
-        let self = this
-        let obj = {}
-        for ( let fld of [ "token", "secondary_action", "session_token", "type", "elements", "amelioritive_action", "extras" ] ) {
-            obj[fld] = self[fld]
+    to_object(preserve_fields) {
+        let self = this;
+        let obj = {};
+        //
+        let keep_fields = [ "token", "secondary_action", "session_token", "type", "elements", "amelioritive_action" ]
+        if ( preserve_fields ) {
+            if ( Array.isArray(preserve_fields) ) {
+                keep_fields = keep_fields.concat(preserve_fields)
+            } else if ( typeof preserve_fields === "string" ) {
+                keep_fields.push(preserve_fields)
+            }    
         }
-        if ( this.extras && Array.isArray(this.extras) ) {
-            for ( let fld of this.extras ) {
-                obj[fld] = self[fld]
+        //
+        for ( let fld of keep_fields ) {
+            obj[fld] = self[fld];
+        }
+        if (this.extras && Array.isArray(this.extras)) {
+            for (let fld of this.extras) {
+                obj[fld] = self[fld];
             }
         }
         return obj
     }
-
     /**
      * Fix the token of this object.
      * @param {string} token 
